@@ -1,4 +1,9 @@
 class Image < ApplicationRecord
+  #Validaciones
+  #Para crear una imagen pido que tenga una descripcion
+  validates :description, presence: true
+
+  #PaperClip config
   has_attached_file :picture, :styles => {
   :tiny => "25x25#",
   :thumbnail => "100x100#",

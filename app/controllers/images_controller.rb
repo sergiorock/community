@@ -23,8 +23,11 @@ class ImagesController < ApplicationController
     # En este caso esa información nos va a servir para crear una nueva imagen y almacenarla en la DB.
     #render plain: params[:image].inspect #Muestra si realmente recibimos los parámetros
     @image = Image.new image_params #Creo un obejo Image (una nueva imagen) y lo guardo en la viariable @image recibiendo los parámetros específicados abajo.
-    @image.save # En este momento rails guarda la imagen en la DB.
-    redirect_to @image #Después de crear la imagen, me redirecciona al pat de ella (show)
+    if @image.save # En este momento rails guarda la imagen en la DB.
+      return redirect_to images_path #Después de crear la imagen, me redirecciona al pat de ella (show)
+    end
+
+    render :new #si no guarda la imagen en el paso anterior me redirije al fomr de create
   end
 
   def show
