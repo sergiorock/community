@@ -3,6 +3,10 @@
     <%= f.label :description %> <br>
     <%= f.text_field :description, class: 'form-control'%>
     <br>
+    <%= f.label :picture %> <br>
+    <%= f.file_field :picture %>
+    <br>
+    <br>
     <%= f.submit 'Enviar', class: 'btn btn-primary' %>
   <% end %>
 </div>

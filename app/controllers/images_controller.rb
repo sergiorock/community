@@ -38,7 +38,7 @@ class ImagesController < ApplicationController
 
   #Parámetros fuertes
   def image_params
-    params.require(:image).permit :description #Permite crear una imagen, pasandole solo como parámetro la description y una picture obviando los demas campos de la tabla images
+    params.require(:image).permit :description, :picture #Permite crear una imagen, pasandole solo como parámetro la description y una picture obviando los demas campos de la tabla images
   end
 
   def set_image

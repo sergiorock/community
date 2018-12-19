@@ -1,6 +1,7 @@
 <div class="col">
   <figure class="figure">
-    <img class="figure-img img-fluid rounded" src="https://www.insertcart.com/wp-content/uploads/2016/09/set-post-thumbnail-image.png" alt="">
+    <%= image_tag image.picture.url(:medium) %>
+    <!-- <img class="figure-img img-fluid rounded" src="https://www.insertcart.com/wp-content/uploads/2016/09/set-post-thumbnail-image.png" alt=""> -->
     <figcaption class="figure-caption"><%= image.description %>
       <%= link_to 'Edit', edit_image_path(image) %>
       <%= link_to 'Destroy', image, method: :delete, data: { confirm: 'sure?'} %>
