@@ -10,6 +10,20 @@
   </head>
 
   <body>
+    <ul class="nav justify-content-end">
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to 'Salir', destroy_user_session_path, method: :delete %>
+        </li>
+      <% else %>
+      <li class="nav-item">
+        <%= link_to 'Registrarse', new_user_registration_path %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Iniciar sesión', new_user_session_path %>
+      </li>
+      <% end %>
+    </ul>
     <div class="container">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
