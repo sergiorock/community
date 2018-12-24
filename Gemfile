@@ -68,3 +68,5 @@ gem 'popper_js', '~> 1.14.5'
 gem 'paperclip'
 
 gem 'devise'
+
+gem 'will_paginate', '~> 3.1.0'
