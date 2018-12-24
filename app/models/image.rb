@@ -1,4 +1,5 @@
 class Image < ApplicationRecord
+  belongs_to :user
   #Validaciones
   #Para crear una imagen pido que tenga una descripcion
   validates :description, presence: true
@@ -11,4 +12,6 @@ class Image < ApplicationRecord
   :medium => "300x300>" },
   :default_url => "default.jpg"
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\Z/
+
+
 end

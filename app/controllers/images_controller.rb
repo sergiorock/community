@@ -2,7 +2,7 @@ class ImagesController < ApplicationController
   before_action :set_image, only: [:show, :edit, :update, :destroy]
 
   def index
-    @images = Image.all
+    @images = Image.where user_id: current_user.id
   end
 
   def new
@@ -19,10 +19,11 @@ class ImagesController < ApplicationController
   end
 
   def create
+    @image = current_user.images.new image_params
     # Se encarga de recibir toda la información que venga de nuestro formularioy hacer lo que querramos con ella.
     # En este caso esa información nos va a servir para crear una nueva imagen y almacenarla en la DB.
     #render plain: params[:image].inspect #Muestra si realmente recibimos los parámetros
-    @image = Image.new image_params #Creo un obejo Image (una nueva imagen) y lo guardo en la viariable @image recibiendo los parámetros específicados abajo.
+    #@image = Image.new image_params #Creo un obejo Image (una nueva imagen) y lo guardo en la viariable @image recibiendo los parámetros específicados abajo.
     if @image.save # En este momento rails guarda la imagen en la DB.
       return redirect_to images_path #Después de crear la imagen, me redirecciona al pat de ella (show)
     end
